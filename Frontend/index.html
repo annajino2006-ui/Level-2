@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Matrix</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <h1>Word Matrix</h1>
+        <button id="new-game-btn" class="new-game-btn" type="button">
+          New Game
+        </button>
+      </header>
+
+
+      <div
+        id="status-banner"
+        class="status-banner hidden"
+        aria-live="polite"
+      ></div>
+
+      <main class="game-layout">
+        <div class="game-panel">
+          <div id="board" class="board" aria-label="Guess grid"></div>
+          <div
+            id="keyboard"
+            class="keyboard"
+            aria-label="On-screen keyboard"
+          ></div>
+        </div>
+
+        <aside
+          class="info-panel"
+          aria-label="Game instructions and color guide"
+        >
+          <div class="info-card">
+            <h2>How to play</h2>
+            <ul>
+              <li>Guess the hidden 5-letter word.</li>
+              <li>You get 6 tries.</li>
+              <li>Type letters or use the keyboard below.</li>
+              <li>Press Enter to submit and Backspace to delete.</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h2>Color guide</h2>
+            <div class="legend-item">
+              <span class="legend-swatch correct"></span>
+              <span>Correct letter in the correct spot</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-swatch present"></span>
+              <span>Correct letter in the wrong spot</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-swatch absent"></span>
+              <span>Letter is not in the word</span>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
