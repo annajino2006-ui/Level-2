@@ -279,6 +279,23 @@ async function submitGuess() {
 
       shakeRow();
 
+      const rowTiles = boardRows[currentRow];
+
+      rowTiles.forEach((tile, index) => {
+        tile.dataset.state = data.result[index];
+        tile.classList.add("flip");
+      });
+
+      updateKeyboardStates(guess, data.result);
+
+      currentGuess = [];
+      currentRow++;
+
+      if (data.status === "lose") {
+        gameOver = true;
+        showStatus(`Out of guesses! The word was ${data.secretWord}.`, "error");
+      }
+
       return;
     }
 

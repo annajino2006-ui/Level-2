@@ -68,12 +68,7 @@ app.post("/api/guess", (req, res) => {
     });
   }
 
-  // Must be in our word list
-  if (!validWords.includes(playerGuess)) {
-    return res.status(400).json({
-      message: "Not a valid word.",
-    });
-  }
+  const isValidWord = validWords.includes(playerGuess);
 
   // Count the attempt
   attempts++;
@@ -134,7 +129,8 @@ app.post("/api/guess", (req, res) => {
   // SEND RESULT TO FRONTEND
   // --------------------------------
 
-  res.json({
+  res.status(isValidWord ? 200 : 400).json({
+    message: isValidWord ? undefined : "Not a valid word.",
     guess: playerGuess,
 
     result: result,
